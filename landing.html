@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Proposta Agein — Fluir Tecnologia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,19 +12,20 @@
 
     :root {
       --bg:       #050d0e;
-      --bg2:      #091315;
       --card:     rgba(255,255,255,0.04);
       --border:   rgba(255,255,255,0.08);
       --accent:   #00e6d8;
-      --accent2:  #00bfae;
       --green:    #22c55e;
       --green2:   #4ade80;
       --text:     #ffffff;
       --muted:    #94a3b8;
-      --soft:     #cce9ff;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+    }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -32,63 +33,64 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
       -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
     }
+
+    img, svg, video, canvas, iframe { max-width: 100%; display: block; }
 
     .wrap {
       width: 100%;
-      max-width: 780px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 20px;
     }
 
     /* ── HEADER ── */
     .lp-header {
-      padding: 3rem 1.25rem 2rem;
+      padding: 48px 20px 32px;
       text-align: center;
-      background: radial-gradient(ellipse at top, rgba(0,230,216,0.08) 0%, transparent 65%);
+      background: radial-gradient(ellipse at top, rgba(0,230,216,0.06) 0%, transparent 65%);
       border-bottom: 1px solid var(--border);
     }
 
-    .lp-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-
-    .lp-logo svg { width: 130px; height: auto; }
+    .lp-logo { margin-bottom: 24px; text-align: center; }
+    .lp-logo svg { width: 120px; height: auto; margin: 0 auto; display: block; }
 
     .lp-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 8px;
       background: rgba(0,230,216,0.08);
       border: 1px solid rgba(0,230,216,0.25);
       color: var(--accent);
-      font-size: 0.75rem;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.35em 1em;
+      padding: 5px 14px;
       border-radius: 100px;
-      margin-bottom: 1.25rem;
+      margin-bottom: 20px;
     }
     .badge-dot {
       width: 6px; height: 6px;
       background: var(--accent);
       border-radius: 50%;
       box-shadow: 0 0 6px var(--accent);
+      flex-shrink: 0;
     }
 
     .lp-title {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 7vw, 3rem);
+      font-size: 28px;
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -0.03em;
-      margin-bottom: 1rem;
+      margin-bottom: 12px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .lp-title span {
@@ -99,106 +101,114 @@
     }
 
     .lp-sub {
-      font-size: 1.05rem;
+      font-size: 15px;
       color: var(--muted);
-      max-width: 54ch;
-      margin: 0 auto 0.5rem;
+      max-width: 100%;
+      margin: 0 auto;
       line-height: 1.7;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     /* ── SECTIONS ── */
-    .section {
-      padding: 3.5rem 0;
+    .lp-section {
+      padding: 40px 0;
+      overflow: hidden;
     }
-    .section + .section {
+    .lp-section + .lp-section {
       border-top: 1px solid var(--border);
     }
 
     .section-label {
       display: inline-block;
-      font-size: 0.72rem;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--accent);
-      margin-bottom: 0.75rem;
+      margin-bottom: 10px;
     }
 
     .section-title {
       font-family: 'Syne', sans-serif;
-      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-size: 22px;
       font-weight: 800;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
       line-height: 1.2;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .section-desc {
       color: var(--muted);
-      font-size: 0.97rem;
-      margin-bottom: 2rem;
-      max-width: 58ch;
+      font-size: 14px;
+      margin-bottom: 24px;
       line-height: 1.65;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     /* ── FEATURES GRID ── */
     .features-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
 
     .feature-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.25rem 1rem;
+      border-radius: 12px;
+      padding: 14px;
       display: flex;
       align-items: flex-start;
-      gap: 0.85rem;
-      transition: border-color 0.2s;
+      gap: 12px;
+      min-width: 0;
     }
-    .feature-card:hover { border-color: rgba(0,230,216,0.3); }
 
     .feature-icon {
-      font-size: 1.5rem;
+      font-size: 22px;
       flex-shrink: 0;
       line-height: 1;
-      margin-top: 2px;
     }
 
     .feature-text {
-      font-size: 0.92rem;
+      font-size: 14px;
       color: var(--text);
       line-height: 1.5;
+      min-width: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     .feature-text strong {
       display: block;
       font-weight: 600;
-      margin-bottom: 0.2rem;
-      color: var(--text);
+      margin-bottom: 2px;
     }
-    .feature-text span { color: var(--muted); font-size: 0.85rem; }
+    .feature-text span {
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     /* ── MODELO CRESCER JUNTO ── */
     .modelo-card {
       background: linear-gradient(135deg, rgba(0,230,216,0.07) 0%, rgba(0,198,255,0.07) 100%);
       border: 1px solid rgba(0,230,216,0.25);
-      border-radius: 20px;
-      padding: 2rem 1.75rem;
+      border-radius: 16px;
+      padding: 24px 16px;
       text-align: center;
-      margin-bottom: 1.5rem;
     }
 
     .modelo-card .modelo-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
     .modelo-card h3 {
       font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
+      font-size: 20px;
       font-weight: 800;
-      margin-bottom: 0.5rem;
+      margin-bottom: 8px;
       background: linear-gradient(135deg, #00e6d8, #00c6ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -206,55 +216,59 @@
     }
 
     .modelo-card p {
-      font-size: 0.97rem;
+      font-size: 14px;
       color: var(--muted);
       line-height: 1.65;
-      max-width: 46ch;
-      margin: 0 auto;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     /* ── PROPOSTA ITENS ── */
     .proposta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
     }
 
     .proposta-item {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem 1.25rem;
+      border-radius: 12px;
+      padding: 20px 16px;
       text-align: center;
     }
 
     .proposta-item .pi-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.6rem;
+      font-size: 28px;
+      margin-bottom: 8px;
     }
 
     .proposta-item .pi-label {
-      font-size: 0.72rem;
+      font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 6px;
     }
 
     .proposta-item .pi-value {
       font-family: 'Syne', sans-serif;
-      font-size: 1.35rem;
+      font-size: 22px;
       font-weight: 800;
       color: var(--text);
       line-height: 1.2;
     }
+    .proposta-item .pi-value small {
+      font-size: 13px;
+      font-weight: 500;
+    }
 
     .proposta-item .pi-detail {
-      font-size: 0.8rem;
+      font-size: 12px;
       color: var(--muted);
-      margin-top: 0.3rem;
+      margin-top: 4px;
     }
 
     .proposta-item.highlight {
@@ -274,45 +288,57 @@
       background: rgba(34,197,94,0.06);
       border: 1px solid rgba(34,197,94,0.2);
       border-radius: 12px;
-      padding: 1.25rem 1.5rem;
+      padding: 16px;
       display: flex;
       align-items: flex-start;
-      gap: 0.85rem;
+      gap: 10px;
     }
 
     .nota-box .nota-icon {
-      font-size: 1.35rem;
+      font-size: 20px;
       flex-shrink: 0;
-      margin-top: 1px;
     }
 
     .nota-box p {
-      font-size: 0.93rem;
+      font-size: 13px;
       color: var(--muted);
       line-height: 1.65;
+      min-width: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     .nota-box strong { color: var(--text); }
 
     /* ── FOOTER ── */
     .lp-footer {
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 32px 20px;
       border-top: 1px solid var(--border);
     }
-    .lp-footer svg { width: 110px; height: auto; margin: 0 auto 0.75rem; display: block; }
+    .lp-footer svg { width: 100px; height: auto; margin: 0 auto 10px; display: block; }
     .lp-footer p {
-      font-size: 0.82rem;
+      font-size: 12px;
       color: var(--muted);
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 600px) {
-      .features-grid { grid-template-columns: 1fr; }
-      .proposta-grid  { grid-template-columns: 1fr; }
-      .lp-header      { padding: 2.5rem 1rem 1.75rem; }
-      .section        { padding: 2.5rem 0; }
-      .modelo-card    { padding: 1.5rem 1rem; }
-      .proposta-item  { padding: 1.25rem 1rem; }
+    /* ── DESKTOP (tablet+) ── */
+    @media (min-width: 600px) {
+      .lp-header { padding: 56px 24px 40px; }
+      .lp-logo svg { width: 140px; }
+      .lp-title { font-size: clamp(28px, 5vw, 40px); }
+      .lp-sub { font-size: 16px; max-width: 52ch; }
+      .wrap { padding: 0 32px; }
+      .lp-section { padding: 52px 0; }
+      .section-title { font-size: clamp(22px, 4vw, 30px); }
+      .section-desc { font-size: 15px; max-width: 56ch; }
+      .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .feature-card { padding: 18px 16px; }
+      .proposta-grid { flex-direction: row; }
+      .proposta-item { flex: 1; }
+      .modelo-card { padding: 32px 28px; }
+      .modelo-card h3 { font-size: 24px; }
+      .nota-box { padding: 20px 24px; }
+      .nota-box p { font-size: 14px; }
     }
   </style>
 </head>
@@ -339,30 +365,29 @@
     <div class="lp-badge"><span class="badge-dot"></span>Proposta Comercial · 2026</div>
 
     <h1 class="lp-title">
-      Apresentamos o<br/>
-      <span>Agein</span>
+      Sua plataforma<br/><span>Agein</span>
     </h1>
     <p class="lp-sub">
-      A plataforma de gestão para consultorias alimentares modernas —
-      desenvolvida pela Fluir Tecnologia como uma parceria real de crescimento.
+      Desenvolvemos o sistema completo de gestão para a sua consultoria alimentar.
+      Aqui está a proposta de parceria que preparamos especialmente para você.
     </p>
   </header>
 
   <main>
 
-    <!-- O QUE É O AGEIN -->
-    <section class="section">
+    <!-- O QUE ESTAMOS CONSTRUINDO -->
+    <section class="lp-section">
       <div class="wrap">
-        <span class="section-label">A Plataforma</span>
-        <h2 class="section-title">Tudo que uma consultoria alimentar precisa</h2>
-        <p class="section-desc">Sistema completo, online e pronto para uso — do checklist ao relatório, do rótulo ao plano de ação.</p>
+        <span class="section-label">O que estamos construindo</span>
+        <h2 class="section-title">Um sistema feito sob medida para sua operação</h2>
+        <p class="section-desc">Cada módulo foi pensado para resolver os problemas reais do dia a dia da sua consultoria.</p>
 
         <div class="features-grid">
           <div class="feature-card">
             <span class="feature-icon">⚡</span>
             <div class="feature-text">
               <strong>Gestão Completa</strong>
-              <span>Clientes, fornecedores e equipe em um só lugar</span>
+              <span>Seus clientes, fornecedores e equipe em um só lugar</span>
             </div>
           </div>
           <div class="feature-card">
@@ -383,50 +408,48 @@
             <span class="feature-icon">📊</span>
             <div class="feature-text">
               <strong>Relatórios e Planos de Ação</strong>
-              <span>Acompanhamento em tempo real para cada cliente</span>
+              <span>Acompanhamento em tempo real de cada cliente seu</span>
             </div>
           </div>
           <div class="feature-card">
             <span class="feature-icon">🔒</span>
             <div class="feature-text">
-              <strong>Segurança e Suporte</strong>
-              <span>Backups automáticos e suporte especializado</span>
+              <strong>Segurança e Backups</strong>
+              <span>Seus dados protegidos com backups automáticos</span>
             </div>
           </div>
           <div class="feature-card">
             <span class="feature-icon">🌎</span>
             <div class="feature-text">
               <strong>100% Online</strong>
-              <span>Acesse de qualquer lugar, qualquer dispositivo</span>
+              <span>Acesse de qualquer lugar, celular ou computador</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MODELO CRESCER JUNTO -->
-    <section class="section">
+    <!-- MODELO DE PARCERIA -->
+    <section class="lp-section">
       <div class="wrap">
         <span class="section-label">Nosso Modelo</span>
         <h2 class="section-title">Você cresce, a gente cresce junto</h2>
         <p class="section-desc">
-          Não é uma venda de software comum. É uma parceria: a Fluir Tecnologia entrega a plataforma,
-          mantém, evolui — e participa do seu sucesso.
+          Não é uma venda de software comum. A Fluir Tecnologia desenvolve, mantém e evolui o Agein — e participa do seu sucesso como parceira.
         </p>
 
         <div class="modelo-card">
           <div class="modelo-icon">🤝</div>
           <h3>Parceria de Crescimento</h3>
           <p>
-            Quanto mais clientes você atende com o Agein, maior é o retorno para os dois lados.
-            A Fluir não cobra por uso excessivo — nosso lucro vem do seu crescimento.
+            Quanto mais clientes você atende com o Agein, maior o retorno para os dois lados. Não cobramos por usuário — nosso ganho vem do seu crescimento.
           </p>
         </div>
       </div>
     </section>
 
     <!-- PROPOSTA COMERCIAL -->
-    <section class="section">
+    <section class="lp-section">
       <div class="wrap">
         <span class="section-label">Proposta Comercial</span>
         <h2 class="section-title">Investimento transparente</h2>
@@ -437,19 +460,19 @@
             <div class="pi-icon">🚀</div>
             <div class="pi-label">Implantação</div>
             <div class="pi-value">3× R$ 800</div>
-            <div class="pi-detail">Parcelado em 3 vezes de R$ 800,00</div>
+            <div class="pi-detail">Parcelado em 3 vezes</div>
           </div>
           <div class="proposta-item">
             <div class="pi-icon">☁️</div>
-            <div class="pi-label">Manutenção & Hospedagem</div>
-            <div class="pi-value">R$ 99,90<span style="font-size:0.8rem;font-weight:500;">/mês</span></div>
-            <div class="pi-detail">Servidor, atualizações e suporte contínuos</div>
+            <div class="pi-label">Manutenção</div>
+            <div class="pi-value">R$ 99,90<small>/mês</small></div>
+            <div class="pi-detail">Servidor, atualizações e suporte</div>
           </div>
           <div class="proposta-item highlight">
             <div class="pi-icon">📈</div>
-            <div class="pi-label">Participação nos Resultados</div>
+            <div class="pi-label">Participação</div>
             <div class="pi-value">10%</div>
-            <div class="pi-detail">De cada assinatura vendida pela consultoria</div>
+            <div class="pi-detail">De cada assinatura vendida</div>
           </div>
         </div>
 
@@ -458,7 +481,6 @@
           <p>
             O modelo de <strong>participação de 10%</strong> substitui o custo de licença por usuário.
             Você não paga mais por crescer — nós crescemos com você.
-            Quanto mais clientes você atende, mais ambos ganham.
           </p>
         </div>
       </div>
@@ -482,7 +504,7 @@
       <text x="50" y="38" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="url(#lg2)" letter-spacing="3">TECNOLOGIA</text>
     </svg>
     <p>© 2026 Fluir Tecnologia. Todos os direitos reservados.</p>
-    <p style="margin-top:0.25rem;">Proposta sujeita a ajustes mediante negociação.</p>
+    <p style="margin-top:4px;">Proposta sujeita a ajustes mediante negociação.</p>
   </footer>
 
 </body>
