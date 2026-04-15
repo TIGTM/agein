@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agein - Plataforma de Consultoria Alimentar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body.landing {
+            background: linear-gradient(120deg, #0f2027, #2c5364);
+            color: #fff;
+            font-family: 'Inter', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .landing-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px 30px 20px;
+        }
+        .landing-logo {
+            width: 90px;
+            height: 90px;
+            background: #fff2;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #00e6d8;
+            letter-spacing: -2px;
+        }
+        .landing-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        .landing-sub {
+            font-size: 1.2rem;
+            color: #ccefff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .landing-cta {
+            background: #00e6d8;
+            color: #0f2027;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 38px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 16px #00e6d855;
+            transition: background 0.2s;
+        }
+        .landing-cta:hover {
+            background: #00bfae;
+        }
+        .landing-section {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff1;
+            border-radius: 18px;
+            padding: 36px 28px;
+            box-shadow: 0 2px 24px #0002;
+        }
+        .landing-section h2 {
+            color: #00e6d8;
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+        .landing-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .landing-feature {
+            background: #fff2;
+            border-radius: 10px;
+            padding: 18px 14px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .landing-feature-icon {
+            font-size: 1.5rem;
+            color: #00e6d8;
+            margin-top: 2px;
+        }
+        @media (max-width: 700px) {
+            .landing-section {padding: 18px 6px;}
+            .landing-features {grid-template-columns: 1fr;}
+        }
+    </style>
+</head>
+<body class="landing">
+    <div class="landing-header">
+                <div class="landing-logo" style="background:none;box-shadow:none;width:auto;height:auto;margin-bottom:18px;padding:0;">
+                    <svg class="logo-svg" viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluir Tecnologia" style="width:110px;height:48px;display:block;margin:0 auto;">
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#22c55e"/>
+                                <stop offset="100%" style="stop-color:#4ade80"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M8 24 C8 14 16 10 24 16 C32 22 40 18 40 8" stroke="url(#logoGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                        <circle cx="8" cy="24" r="3" fill="url(#logoGrad)"/>
+                        <circle cx="40" cy="8" r="3" fill="url(#logoGrad)"/>
+                        <text x="50" y="22" font-family="Syne, sans-serif" font-weight="800" font-size="16" fill="white" letter-spacing="1">FLUIR</text>
+                        <text x="50" y="38" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="url(#logoGrad)" letter-spacing="3">TECNOLOGIA</text>
+                    </svg>
+                </div>
+        <div class="landing-title">Agein</div>
+        <div class="landing-sub">A plataforma definitiva para consultorias alimentares modernas.<br>Automatize, organize e escale seu negócio com tecnologia Fluir.</div>
+        <a href="index.html"><button class="landing-cta">Acessar o sistema</button></a>
+    </div>
+    <div class="landing-section">
+        <h2>Por que escolher o Agein?</h2>
+        <div class="landing-features">
+            <div class="landing-feature"><span class="landing-feature-icon">⚡</span>Gestão completa de clientes, fornecedores e equipe</div>
+            <div class="landing-feature"><span class="landing-feature-icon">📋</span>Checklists inteligentes (BPF, APPCC, Higienização, Recebimento)</div>
+            <div class="landing-feature"><span class="landing-feature-icon">🏷️</span>Geração automática de rótulos nutricionais (RDC 429/2020)</div>
+            <div class="landing-feature"><span class="landing-feature-icon">📊</span>Relatórios, planos de ação e acompanhamento em tempo real</div>
+            <div class="landing-feature"><span class="landing-feature-icon">🔒</span>Segurança, backups e suporte especializado</div>
+            <div class="landing-feature"><span class="landing-feature-icon">🌎</span>100% online, acesso de qualquer lugar</div>
+        </div>
+    </div>
+    <div class="landing-section" style="text-align:center;">
+        <h2>Proposta Comercial</h2>
+        <div style="font-size:1.1rem; color:#fff; margin-bottom:18px;">
+            <b>Implantação:</b> 3x de R$ 800,00<br>
+            <b>Manutenção/hospedagem:</b> R$ 99,90/mês<br>
+            <b>Participação:</b> 10% de cada assinatura vendida<br>
+        </div>
+        <div style="color:#ccefff; font-size:0.98rem;">Modelo SaaS: você cresce, a gente cresce junto.<br>Fale com a Fluir Tecnologia e solicite uma demonstração!</div>
+    </div>
+    <div style="text-align:center; margin:40px 0 10px 0; color:#ccefff; font-size:0.95rem;">
+        &copy; 2026 Fluir Tecnologia. Todos os direitos reservados.
+    </div>
+</body>
+</html>

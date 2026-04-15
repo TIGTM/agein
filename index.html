@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agein - Software para Consultoria de Alimentos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-logo">
+                <div class="logo-icon">AG</div>
+                <h1>Agein</h1>
+                <p>Software para Consultoria de Alimentos</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="loginEmail" value="admin@agein.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" id="loginPassword" value="123456" required>
+                </div>
+                <button type="submit" class="btn-primary">Entrar</button>
+                <p class="login-hint">Demo: admin@agein.com / 123456</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Aplicação Principal -->
+    <div id="app" class="app hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon small">AG</div>
+                <div class="sidebar-brand">
+                    <h2>Agein</h2>
+                    <span>Consultoria</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <div class="nav-section">Cadastros</div>
+                <a href="#" class="nav-item" data-page="clientes">
+                    <span class="nav-icon">👥</span>
+                    <span>Clientes</span>
+                </a>
+                <a href="#" class="nav-item" data-page="fornecedores">
+                    <span class="nav-icon">🏭</span>
+                    <span>Fornecedores</span>
+                </a>
+                <a href="#" class="nav-item" data-page="equipe">
+                    <span class="nav-icon">👔</span>
+                    <span>Equipe</span>
+                </a>
+                <div class="nav-section">Operacional</div>
+                <a href="#" class="nav-item" data-page="checklists">
+                    <span class="nav-icon">✅</span>
+                    <span>Checklists</span>
+                </a>
+                <a href="#" class="nav-item" data-page="pops">
+                    <span class="nav-icon">📋</span>
+                    <span>POPs</span>
+                </a>
+                <a href="#" class="nav-item" data-page="fichas">
+                    <span class="nav-icon">🍽️</span>
+                    <span>Fichas Técnicas</span>
+                </a>
+                <a href="#" class="nav-item" data-page="rotulagem">
+                    <span class="nav-icon">🏷️</span>
+                    <span>Rotulagem</span>
+                </a>
+                <a href="#" class="nav-item" data-page="visitas">
+                    <span class="nav-icon">📍</span>
+                    <span>Visitas</span>
+                </a>
+                <a href="#" class="nav-item" data-page="planos">
+                    <span class="nav-icon">🎯</span>
+                    <span>Planos de Ação</span>
+                </a>
+                <div class="nav-section">Gestão</div>
+                <a href="#" class="nav-item" data-page="documentacao">
+                    <span class="nav-icon">📁</span>
+                    <span>Documentação</span>
+                </a>
+                <a href="#" class="nav-item" data-page="treinamentos">
+                    <span class="nav-icon">🎓</span>
+                    <span>Treinamentos</span>
+                </a>
+                <a href="#" class="nav-item" data-page="formularios">
+                    <span class="nav-icon">📝</span>
+                    <span>Formulários</span>
+                </a>
+                <a href="#" class="nav-item" data-page="legislacao">
+                    <span class="nav-icon">⚖️</span>
+                    <span>Legislação</span>
+                </a>
+                <a href="#" class="nav-item" data-page="relatorios">
+                    <span class="nav-icon">📈</span>
+                    <span>Relatórios</span>
+                </a>
+                <a href="#" class="nav-item" data-page="calendario">
+                    <span class="nav-icon">📅</span>
+                    <span>Calendário</span>
+                </a>
+                    <a href="#" class="nav-item" data-page="landing">
+                        <span class="nav-icon">🌐</span>
+                        <span>Landing Page</span>
+                    </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <strong>Administrador</strong>
+                        <small>Consultor</small>
+                    </div>
+                </div>
+                <button id="logoutBtn" class="btn-logout" title="Sair">⎋</button>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div class="topbar-search">
+                    <input type="text" placeholder="🔍 Buscar no sistema..." id="globalSearch">
+                </div>
+                <div class="topbar-actions">
+                    <button class="icon-btn" title="Notificações">🔔<span class="badge">3</span></button>
+                    <button class="icon-btn" title="Ajuda">❓</button>
+                </div>
+            </header>
+
+            <!-- Container de Páginas -->
+            <div class="page-container" id="pageContainer">
+                <!-- Conteúdo será injetado dinamicamente -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/database.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/modules/dashboard.js"></script>
+    <script src="js/modules/clientes.js"></script>
+    <script src="js/modules/fornecedores.js"></script>
+    <script src="js/modules/equipe.js"></script>
+    <script src="js/modules/checklists.js"></script>
+    <script src="js/modules/pops.js"></script>
+    <script src="js/modules/fichas.js"></script>
+    <script src="js/modules/rotulagem.js"></script>
+    <script src="js/modules/visitas.js"></script>
+    <script src="js/modules/planos.js"></script>
+    <script src="js/modules/documentacao.js"></script>
+    <script src="js/modules/treinamentos.js"></script>
+    <script src="js/modules/formularios.js"></script>
+    <script src="js/modules/legislacao.js"></script>
+    <script src="js/modules/relatorios.js"></script>
+    <script src="js/modules/calendario.js"></script>
+        <script src="js/modules/landing.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
