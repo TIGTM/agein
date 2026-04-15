@@ -1,146 +1,489 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agein - Plataforma de Consultoria Alimentar</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        body.landing {
-            background: linear-gradient(120deg, #0f2027, #2c5364);
-            color: #fff;
-            font-family: 'Inter', Arial, sans-serif;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .landing-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 60px 20px 30px 20px;
-        }
-        .landing-logo {
-            width: 90px;
-            height: 90px;
-            background: #fff2;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 18px;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: #00e6d8;
-            letter-spacing: -2px;
-        }
-        .landing-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-        .landing-sub {
-            font-size: 1.2rem;
-            color: #ccefff;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .landing-cta {
-            background: #00e6d8;
-            color: #0f2027;
-            border: none;
-            border-radius: 8px;
-            padding: 16px 38px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 2px 16px #00e6d855;
-            transition: background 0.2s;
-        }
-        .landing-cta:hover {
-            background: #00bfae;
-        }
-        .landing-section {
-            max-width: 700px;
-            margin: 40px auto;
-            background: #fff1;
-            border-radius: 18px;
-            padding: 36px 28px;
-            box-shadow: 0 2px 24px #0002;
-        }
-        .landing-section h2 {
-            color: #00e6d8;
-            font-size: 1.6rem;
-            margin-bottom: 18px;
-        }
-        .landing-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-        .landing-feature {
-            background: #fff2;
-            border-radius: 10px;
-            padding: 18px 14px;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .landing-feature-icon {
-            font-size: 1.5rem;
-            color: #00e6d8;
-            margin-top: 2px;
-        }
-        @media (max-width: 700px) {
-            .landing-section {padding: 18px 6px;}
-            .landing-features {grid-template-columns: 1fr;}
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Agein — Fluir Tecnologia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #050d0e;
+      --bg2:      #091315;
+      --card:     rgba(255,255,255,0.04);
+      --border:   rgba(255,255,255,0.08);
+      --accent:   #00e6d8;
+      --accent2:  #00bfae;
+      --green:    #22c55e;
+      --green2:   #4ade80;
+      --text:     #ffffff;
+      --muted:    #94a3b8;
+      --soft:     #cce9ff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ── HEADER ── */
+    .lp-header {
+      padding: 3rem 1.25rem 2rem;
+      text-align: center;
+      background: radial-gradient(ellipse at top, rgba(0,230,216,0.08) 0%, transparent 65%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lp-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .lp-logo svg { width: 130px; height: auto; }
+
+    .lp-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,230,216,0.08);
+      border: 1px solid rgba(0,230,216,0.25);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35em 1em;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--accent);
+    }
+
+    .lp-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 7vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .lp-title span {
+      background: linear-gradient(135deg, #00e6d8, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lp-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 54ch;
+      margin: 0 auto 0.5rem;
+      line-height: 1.7;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 3.5rem 0;
+    }
+    .section + .section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 0.97rem;
+      margin-bottom: 2rem;
+      max-width: 58ch;
+      line-height: 1.65;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: rgba(0,230,216,0.3); }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .feature-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .feature-text strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: var(--text);
+    }
+    .feature-text span { color: var(--muted); font-size: 0.85rem; }
+
+    /* ── MODELO CRESCER JUNTO ── */
+    .modelo-card {
+      background: linear-gradient(135deg, rgba(0,230,216,0.07) 0%, rgba(0,198,255,0.07) 100%);
+      border: 1px solid rgba(0,230,216,0.25);
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .modelo-card .modelo-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .modelo-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #00e6d8, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .modelo-card p {
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 46ch;
+      margin: 0 auto;
+    }
+
+    /* ── PROPOSTA ITENS ── */
+    .proposta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .proposta-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+
+    .proposta-item .pi-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .proposta-item .pi-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .proposta-item .pi-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .proposta-item .pi-detail {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .proposta-item.highlight {
+      background: linear-gradient(135deg, rgba(0,230,216,0.1), rgba(0,198,255,0.08));
+      border-color: rgba(0,230,216,0.3);
+    }
+
+    .proposta-item.highlight .pi-value {
+      background: linear-gradient(135deg, #00e6d8, #00c6ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── NOTA FINAL ── */
+    .nota-box {
+      background: rgba(34,197,94,0.06);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .nota-box .nota-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .nota-box p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .nota-box strong { color: var(--text); }
+
+    /* ── FOOTER ── */
+    .lp-footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .lp-footer svg { width: 110px; height: auto; margin: 0 auto 0.75rem; display: block; }
+    .lp-footer p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .proposta-grid  { grid-template-columns: 1fr; }
+      .lp-header      { padding: 2.5rem 1rem 1.75rem; }
+      .section        { padding: 2.5rem 0; }
+      .modelo-card    { padding: 1.5rem 1rem; }
+      .proposta-item  { padding: 1.25rem 1rem; }
+    }
+  </style>
 </head>
-<body class="landing">
-    <div class="landing-header">
-                <div class="landing-logo" style="background:none;box-shadow:none;width:auto;height:auto;margin-bottom:18px;padding:0;">
-                    <svg class="logo-svg" viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluir Tecnologia" style="width:110px;height:48px;display:block;margin:0 auto;">
-                        <defs>
-                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#22c55e"/>
-                                <stop offset="100%" style="stop-color:#4ade80"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M8 24 C8 14 16 10 24 16 C32 22 40 18 40 8" stroke="url(#logoGrad)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-                        <circle cx="8" cy="24" r="3" fill="url(#logoGrad)"/>
-                        <circle cx="40" cy="8" r="3" fill="url(#logoGrad)"/>
-                        <text x="50" y="22" font-family="Syne, sans-serif" font-weight="800" font-size="16" fill="white" letter-spacing="1">FLUIR</text>
-                        <text x="50" y="38" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="url(#logoGrad)" letter-spacing="3">TECNOLOGIA</text>
-                    </svg>
-                </div>
-        <div class="landing-title">Agein</div>
-        <div class="landing-sub">A plataforma definitiva para consultorias alimentares modernas.<br>Automatize, organize e escale seu negócio com tecnologia Fluir.</div>
-        <a href="index.html"><button class="landing-cta">Acessar o sistema</button></a>
+<body>
+
+  <!-- HEADER -->
+  <header class="lp-header">
+    <div class="lp-logo">
+      <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" aria-label="Fluir Tecnologia">
+        <defs>
+          <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#22c55e"/>
+            <stop offset="100%" style="stop-color:#4ade80"/>
+          </linearGradient>
+        </defs>
+        <path d="M8 24 C8 14 16 10 24 16 C32 22 40 18 40 8" stroke="url(#lg1)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="8" cy="24" r="3" fill="url(#lg1)"/>
+        <circle cx="40" cy="8" r="3" fill="url(#lg1)"/>
+        <text x="50" y="22" font-family="Syne, sans-serif" font-weight="800" font-size="16" fill="white" letter-spacing="1">FLUIR</text>
+        <text x="50" y="38" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="url(#lg1)" letter-spacing="3">TECNOLOGIA</text>
+      </svg>
     </div>
-    <div class="landing-section">
-        <h2>Por que escolher o Agein?</h2>
-        <div class="landing-features">
-            <div class="landing-feature"><span class="landing-feature-icon">⚡</span>Gestão completa de clientes, fornecedores e equipe</div>
-            <div class="landing-feature"><span class="landing-feature-icon">📋</span>Checklists inteligentes (BPF, APPCC, Higienização, Recebimento)</div>
-            <div class="landing-feature"><span class="landing-feature-icon">🏷️</span>Geração automática de rótulos nutricionais (RDC 429/2020)</div>
-            <div class="landing-feature"><span class="landing-feature-icon">📊</span>Relatórios, planos de ação e acompanhamento em tempo real</div>
-            <div class="landing-feature"><span class="landing-feature-icon">🔒</span>Segurança, backups e suporte especializado</div>
-            <div class="landing-feature"><span class="landing-feature-icon">🌎</span>100% online, acesso de qualquer lugar</div>
+
+    <div class="lp-badge"><span class="badge-dot"></span>Proposta Comercial · 2026</div>
+
+    <h1 class="lp-title">
+      Apresentamos o<br/>
+      <span>Agein</span>
+    </h1>
+    <p class="lp-sub">
+      A plataforma de gestão para consultorias alimentares modernas —
+      desenvolvida pela Fluir Tecnologia como uma parceria real de crescimento.
+    </p>
+  </header>
+
+  <main>
+
+    <!-- O QUE É O AGEIN -->
+    <section class="section">
+      <div class="wrap">
+        <span class="section-label">A Plataforma</span>
+        <h2 class="section-title">Tudo que uma consultoria alimentar precisa</h2>
+        <p class="section-desc">Sistema completo, online e pronto para uso — do checklist ao relatório, do rótulo ao plano de ação.</p>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">⚡</span>
+            <div class="feature-text">
+              <strong>Gestão Completa</strong>
+              <span>Clientes, fornecedores e equipe em um só lugar</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📋</span>
+            <div class="feature-text">
+              <strong>Checklists Inteligentes</strong>
+              <span>BPF, APPCC, Higienização, Recebimento e mais</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🏷️</span>
+            <div class="feature-text">
+              <strong>Rotulagem Nutricional</strong>
+              <span>Geração automática conforme RDC 429/2020</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📊</span>
+            <div class="feature-text">
+              <strong>Relatórios e Planos de Ação</strong>
+              <span>Acompanhamento em tempo real para cada cliente</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <div class="feature-text">
+              <strong>Segurança e Suporte</strong>
+              <span>Backups automáticos e suporte especializado</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🌎</span>
+            <div class="feature-text">
+              <strong>100% Online</strong>
+              <span>Acesse de qualquer lugar, qualquer dispositivo</span>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="landing-section" style="text-align:center;">
-        <h2>Proposta Comercial</h2>
-        <div style="font-size:1.1rem; color:#fff; margin-bottom:18px;">
-            <b>Implantação:</b> 3x de R$ 800,00<br>
-            <b>Manutenção/hospedagem:</b> R$ 99,90/mês<br>
-            <b>Participação:</b> 10% de cada assinatura vendida<br>
+      </div>
+    </section>
+
+    <!-- MODELO CRESCER JUNTO -->
+    <section class="section">
+      <div class="wrap">
+        <span class="section-label">Nosso Modelo</span>
+        <h2 class="section-title">Você cresce, a gente cresce junto</h2>
+        <p class="section-desc">
+          Não é uma venda de software comum. É uma parceria: a Fluir Tecnologia entrega a plataforma,
+          mantém, evolui — e participa do seu sucesso.
+        </p>
+
+        <div class="modelo-card">
+          <div class="modelo-icon">🤝</div>
+          <h3>Parceria de Crescimento</h3>
+          <p>
+            Quanto mais clientes você atende com o Agein, maior é o retorno para os dois lados.
+            A Fluir não cobra por uso excessivo — nosso lucro vem do seu crescimento.
+          </p>
         </div>
-        <div style="color:#ccefff; font-size:0.98rem;">Modelo SaaS: você cresce, a gente cresce junto.<br>Fale com a Fluir Tecnologia e solicite uma demonstração!</div>
-    </div>
-    <div style="text-align:center; margin:40px 0 10px 0; color:#ccefff; font-size:0.95rem;">
-        &copy; 2026 Fluir Tecnologia. Todos os direitos reservados.
-    </div>
+      </div>
+    </section>
+
+    <!-- PROPOSTA COMERCIAL -->
+    <section class="section">
+      <div class="wrap">
+        <span class="section-label">Proposta Comercial</span>
+        <h2 class="section-title">Investimento transparente</h2>
+        <p class="section-desc">Três componentes simples e claros — sem surpresas, sem letras miúdas.</p>
+
+        <div class="proposta-grid">
+          <div class="proposta-item">
+            <div class="pi-icon">🚀</div>
+            <div class="pi-label">Implantação</div>
+            <div class="pi-value">3× R$ 800</div>
+            <div class="pi-detail">Parcelado em 3 vezes de R$ 800,00</div>
+          </div>
+          <div class="proposta-item">
+            <div class="pi-icon">☁️</div>
+            <div class="pi-label">Manutenção & Hospedagem</div>
+            <div class="pi-value">R$ 99,90<span style="font-size:0.8rem;font-weight:500;">/mês</span></div>
+            <div class="pi-detail">Servidor, atualizações e suporte contínuos</div>
+          </div>
+          <div class="proposta-item highlight">
+            <div class="pi-icon">📈</div>
+            <div class="pi-label">Participação nos Resultados</div>
+            <div class="pi-value">10%</div>
+            <div class="pi-detail">De cada assinatura vendida pela consultoria</div>
+          </div>
+        </div>
+
+        <div class="nota-box">
+          <span class="nota-icon">💡</span>
+          <p>
+            O modelo de <strong>participação de 10%</strong> substitui o custo de licença por usuário.
+            Você não paga mais por crescer — nós crescemos com você.
+            Quanto mais clientes você atende, mais ambos ganham.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="lp-footer">
+    <svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg" aria-label="Fluir Tecnologia">
+      <defs>
+        <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#22c55e"/>
+          <stop offset="100%" style="stop-color:#4ade80"/>
+        </linearGradient>
+      </defs>
+      <path d="M8 24 C8 14 16 10 24 16 C32 22 40 18 40 8" stroke="url(#lg2)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="8" cy="24" r="3" fill="url(#lg2)"/>
+      <circle cx="40" cy="8" r="3" fill="url(#lg2)"/>
+      <text x="50" y="22" font-family="Syne, sans-serif" font-weight="800" font-size="16" fill="white" letter-spacing="1">FLUIR</text>
+      <text x="50" y="38" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="url(#lg2)" letter-spacing="3">TECNOLOGIA</text>
+    </svg>
+    <p>© 2026 Fluir Tecnologia. Todos os direitos reservados.</p>
+    <p style="margin-top:0.25rem;">Proposta sujeita a ajustes mediante negociação.</p>
+  </footer>
+
 </body>
 </html>
