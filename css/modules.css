@@ -579,3 +579,119 @@
     cursor: pointer;
     font-size: 13px;
 }
+
+/* ========== MÓDULOS RESPONSIVO MOBILE ========== */
+@media (max-width: 768px) {
+    /* Dashboard grid: 2 colunas → 1 coluna */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Chart menor em mobile */
+    .chart-bar {
+        height: 140px;
+    }
+
+    /* Checklist: empilhar opções */
+    .checklist-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .checklist-options {
+        flex-wrap: wrap;
+        gap: 6px;
+        width: 100%;
+    }
+
+    .option-btn {
+        flex: 1;
+        min-width: 80px;
+        text-align: center;
+        padding: 6px 8px;
+    }
+
+    /* Fichas - ingredientes em grid compactado */
+    .ingrediente-row {
+        grid-template-columns: 1fr 80px 80px 36px;
+        gap: 6px;
+    }
+
+    /* Tabs: overflow horizontal */
+    .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+
+    .tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 10px 14px;
+    }
+
+    /* Calendário: fonte menor */
+    .calendar-day {
+        min-height: 40px;
+        padding: 4px 6px;
+        font-size: 11px;
+    }
+
+    .calendar-day-header {
+        font-size: 10px;
+        padding: 6px 4px;
+    }
+
+    /* POP document: padding reduzido */
+    .pop-document {
+        padding: 20px 16px;
+        font-size: 13px;
+    }
+
+    /* Rótulo preview */
+    .rotulo-preview {
+        max-width: 100%;
+    }
+
+    /* Cards grid */
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Item card */
+    .item-card {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ingrediente row: 2 colunas em telas muito pequenas */
+    .ingrediente-row {
+        grid-template-columns: 1fr 36px;
+    }
+
+    .ingrediente-row input:nth-child(2),
+    .ingrediente-row input:nth-child(3) {
+        display: none;
+    }
+
+    /* Calendário simples */
+    .calendar-grid {
+        gap: 2px;
+    }
+
+    .calendar-day {
+        min-height: 32px;
+        padding: 3px 4px;
+        font-size: 10px;
+    }
+}
+

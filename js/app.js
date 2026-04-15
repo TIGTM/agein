@@ -38,9 +38,25 @@ const App = {
     },
 
     setupMenuToggle() {
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebarBackdrop');
+
         document.getElementById('menuToggle').addEventListener('click', () => {
-            document.getElementById('sidebar').classList.toggle('open');
+            sidebar.classList.toggle('open');
+            backdrop.classList.toggle('active');
         });
+
+        backdrop.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            backdrop.classList.remove('active');
+        });
+    },
+
+    closeSidebarOnMobile() {
+        if (window.innerWidth <= 768) {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarBackdrop').classList.remove('active');
+        }
     },
 
     setupNavigation() {
@@ -49,6 +65,7 @@ const App = {
                 e.preventDefault();
                 const page = item.dataset.page;
                 this.navigateTo(page);
+                this.closeSidebarOnMobile();
             });
         });
     },
