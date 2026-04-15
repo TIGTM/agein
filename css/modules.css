@@ -585,11 +585,17 @@
     /* Dashboard grid: 2 colunas → 1 coluna */
     .dashboard-grid {
         grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     /* Chart menor em mobile */
     .chart-bar {
         height: 140px;
+        gap: 6px;
+    }
+
+    .chart-column-label {
+        font-size: 10px;
     }
 
     /* Checklist: empilhar opções */
@@ -601,97 +607,146 @@
     }
 
     .checklist-options {
-        flex-wrap: wrap;
-        gap: 6px;
         width: 100%;
+        justify-content: flex-start;
     }
 
     .option-btn {
         flex: 1;
-        min-width: 80px;
         text-align: center;
         padding: 6px 8px;
     }
 
-    /* Fichas - ingredientes em grid compactado */
+    /* Rotulagem */
+    .rotulo-preview {
+        max-width: 100%;
+        padding: 12px;
+    }
+
+    /* Fichas Técnicas */
     .ingrediente-row {
-        grid-template-columns: 1fr 80px 80px 36px;
+        grid-template-columns: 1fr 1fr;
         gap: 6px;
     }
 
-    /* Tabs: overflow horizontal */
-    .tabs {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        flex-wrap: nowrap;
-        scrollbar-width: none;
-        padding-bottom: 2px;
+    .ingrediente-row input {
+        font-size: 12px;
     }
 
-    .tabs::-webkit-scrollbar {
-        display: none;
+    /* Cards Grid */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
-    .tab {
-        white-space: nowrap;
-        flex-shrink: 0;
-        padding: 10px 14px;
+    .item-card {
+        padding: 16px;
     }
 
-    /* Calendário: fonte menor */
+    /* Calendar */
+    .calendar {
+        padding: 14px;
+    }
+
+    .calendar-header h3 {
+        font-size: 15px;
+    }
+
     .calendar-day {
         min-height: 40px;
-        padding: 4px 6px;
+        padding: 4px;
         font-size: 11px;
     }
 
     .calendar-day-header {
         font-size: 10px;
-        padding: 6px 4px;
+        padding: 4px;
     }
 
-    /* POP document: padding reduzido */
+    /* Tabs */
+    .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+    }
+
+    .tab {
+        padding: 10px 14px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* POP Document */
     .pop-document {
         padding: 20px 16px;
-        font-size: 13px;
-    }
-
-    /* Rótulo preview */
-    .rotulo-preview {
         max-width: 100%;
     }
 
-    /* Cards grid */
-    .cards-grid {
-        grid-template-columns: 1fr;
+    .pop-document h1 {
+        font-size: 16px;
     }
 
-    /* Item card */
-    .item-card {
-        padding: 14px;
+    .pop-document h2 {
+        font-size: 14px;
+    }
+
+    .pop-document p {
+        font-size: 12px;
+    }
+
+    /* Timeline */
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline-item::before {
+        width: 10px;
+        height: 10px;
+        left: -20px;
+    }
+
+    /* Info Box */
+    .info-box {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    /* Activity */
+    .activity-item {
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .activity-content strong {
+        font-size: 12px;
+    }
+
+    .activity-content small {
+        font-size: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    /* Ingrediente row: 2 colunas em telas muito pequenas */
     .ingrediente-row {
-        grid-template-columns: 1fr 36px;
+        grid-template-columns: 1fr;
     }
 
-    .ingrediente-row input:nth-child(2),
-    .ingrediente-row input:nth-child(3) {
-        display: none;
-    }
-
-    /* Calendário simples */
     .calendar-grid {
         gap: 2px;
     }
 
     .calendar-day {
         min-height: 32px;
-        padding: 3px 4px;
         font-size: 10px;
+    }
+
+    .checklist-options {
+        flex-wrap: wrap;
+    }
+
+    .option-btn {
+        font-size: 11px;
+        padding: 5px 8px;
     }
 }
 
